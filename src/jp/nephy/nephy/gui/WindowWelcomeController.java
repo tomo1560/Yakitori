@@ -40,6 +40,7 @@ public class WindowWelcomeController implements Initializable{
 			dialog.setHeaderText("");
 			dialog.setContentText("Pin:");
 
+			twitter.getConsumerKeys();
 			twitter.setTwitterInstance();
 			browseAuthPage(twitter);
 

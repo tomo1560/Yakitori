@@ -3,6 +3,7 @@ package jp.nephy.nephy.gui;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -11,6 +12,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 import twitter4j.ResponseList;
@@ -22,9 +24,11 @@ public class WindowMainController implements Initializable {
 	private Twitter twitter = null;
 
 	private Stage primaryStage;
+
 	@FXML private ListView<Status> listview_hometimeline;
 	@FXML private TextArea textarea_tweet_content;
 	@FXML private Button button_tweet_post;
+	@FXML private MenuItem menuitem_file_close, menuitem_help_about,menuitem_tools_settings;
 
 
 	public void setTwitter(Twitter twitter){
@@ -57,6 +61,10 @@ public class WindowMainController implements Initializable {
 				button_tweet_post.setText("Tweet");
 				button_tweet_post.setDisable(false);
 			}
+		});
+
+		menuitem_file_close.setOnAction(e -> {
+			Platform.exit();
 		});
 	}
 

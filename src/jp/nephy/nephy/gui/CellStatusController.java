@@ -1,8 +1,11 @@
 package jp.nephy.nephy.gui;
 
+import java.net.URL;
+import java.util.ResourceBundle;
 import java.util.concurrent.ConcurrentHashMap;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -11,11 +14,16 @@ import javafx.scene.text.Text;
 import twitter4j.Status;
 import twitter4j.User;
 
-public class CellStatusController {
+public class CellStatusController implements Initializable {
 	@FXML private GridPane gridpane_status;
 	@FXML private Text text_user_name;
 	@FXML private Text text_status_content;
 	@FXML private ImageView imageview_user_icon;
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+
+	}
 
 	public void update(Status item, ListView<Status> list, ConcurrentHashMap<Long, Image> cache){
 		text_user_name.wrappingWidthProperty().bind(list.widthProperty().subtract(30));

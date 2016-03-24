@@ -28,13 +28,6 @@ public class CellStatus extends ListCell<Status>{
 	}
 
 	private void initComponent() {
-//		FXMLLoader loader = new FXMLLoader(getClass().getResource("CellStatus.fxml"));
-//		loader.setController(CellStatusController.class);
-//		try{
-//			loader.load();
-//		} catch(IOException e){
-//			e.printStackTrace();;
-//		}
 	}
 
 	@Override
@@ -61,11 +54,6 @@ public class CellStatus extends ListCell<Status>{
 		} else {
 			controller.update(item, getListView(), imageCache);
 		}
-
-//		double width = gridpane_status.getWidth() - 74;
-//		text_user_name.setWrappingWidth(width);
-//		text_status_content.setWrappingWidth(width);
-		//setGraphic(gridpane_status);
 
 	}
 }
