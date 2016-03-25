@@ -1,32 +1,36 @@
 package jp.nephy.nephy.gui;
 
-import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.scene.Group;
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.paint.Color;
-import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 
-public class WindowWebBrowserController extends Application{
-	public static void main(String[] args) {
-		Application.launch(WindowWebBrowserController.class, args);
+public class WindowWebBrowserController implements Initializable{
+	private Stage primaryStage;
+
+	@FXML private WebView window_web_browser_webview;
+
+	public void setStage (Stage stage) {
+		primaryStage = stage;
 	}
 
 	@Override
-	public void start(Stage primaryStage) {
+	public void initialize(URL location, ResourceBundle resources) {
 		primaryStage.setTitle("Browser - Nephy");
-		Group root = new Group();
-		Scene scene = new Scene(root, 800, 600);
-
-		WebEngine engine = new WebEngine("https://google.co.jp/");
-		WebView view = new WebView(engine);
-		root.getChildren().add(view);
-		
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("WindowWebBrowser.fxml"));
+		Scene scene = null;
+		try {
+			scene = loader.load();
+		} catch(IOException e) {
+			e.printStackTrace();
+		}
 		primaryStage.setScene(scene);
-		//primaryStage.setVisible(true);
+		primaryStage.show();
 	}
 }
