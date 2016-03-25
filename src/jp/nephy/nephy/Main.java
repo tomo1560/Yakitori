@@ -9,7 +9,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import jp.nephy.nephy.gui.WindowWelcomeController;
 
-
 public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
