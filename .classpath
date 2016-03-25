@@ -10,5 +10,6 @@
 	<classpathentry kind="lib" path="lib/twitter4j-stream-4.0.4.jar"/>
 	<classpathentry kind="lib" path="lib/tyrus-client-1.12.jar"/>
 	<classpathentry kind="lib" path="lib/tyrus-container-grizzly-client-1.12.jar"/>
+	<classpathentry kind="lib" path="lib/sqlite-jdbc-3.8.11.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
