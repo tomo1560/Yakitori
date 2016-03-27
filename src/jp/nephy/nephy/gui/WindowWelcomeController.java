@@ -55,7 +55,7 @@ public class WindowWelcomeController implements Initializable{
 					er.printStackTrace();
 				}
 				WindowMainController controller = loader.getController();
-				controller.setTwitter(twitter.getTwitter());
+				controller.setTwitter(twitter);
 				controller.setStage(primaryStage);
 
 				Stage stage = new Stage();

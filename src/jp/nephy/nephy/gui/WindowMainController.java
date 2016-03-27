@@ -15,12 +15,15 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
+import jp.nephy.twitter.AuthTwitter;
+import jp.nephy.twitter.Streaming;
 import twitter4j.ResponseList;
 import twitter4j.Status;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
 
 public class WindowMainController implements Initializable {
+	private AuthTwitter authTwitter = null;
 	private Twitter twitter = null;
 
 	private Stage primaryStage;
@@ -31,11 +34,13 @@ public class WindowMainController implements Initializable {
 	@FXML private MenuItem menuitem_file_close, menuitem_help_about,menuitem_tools_settings;
 
 
-	public void setTwitter(Twitter twitter){
-		this.twitter = twitter;
+	public void setTwitter(AuthTwitter twitter){
+		this.authTwitter = twitter;
+		this.twitter = twitter.getTwitter();
 		listview_hometimeline.setCellFactory(listView -> new CellStatus());
 		ObservableList<Status> list = createStatus();
 		listview_hometimeline.setItems(list);
+		Streaming.userStreaming(list, authTwitter, listview_hometimeline);
 	}
 
 	public void setStage(Stage stage) {

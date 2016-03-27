@@ -12,10 +12,22 @@ import twitter4j.conf.ConfigurationBuilder;
 
 public class AuthTwitter {
 	private Twitter twitter;
-	private String CONSUMER_KEY;
-	private String CONSUMER_SECRET;
+	private String consumerKey;
+	private String consumerSecret;
 	private RequestToken rToken;
 	private AccessToken aToken;
+
+	public String getConsumerKey() {
+		return consumerKey;
+	}
+
+	public String getConsumerSecret() {
+		return consumerSecret;
+	}
+
+	public AccessToken getAccessToken() {
+		return aToken;
+	}
 
 	public Twitter getTwitter() {
 		return twitter;
@@ -24,8 +36,8 @@ public class AuthTwitter {
 	public void setTwitterInstanceDebug() {
 		ConfigurationBuilder builder = new ConfigurationBuilder();
 		builder.setDebugEnabled(true)
-			.setOAuthConsumerKey(CONSUMER_KEY)
-			.setOAuthConsumerSecret(CONSUMER_SECRET)
+			.setOAuthConsumerKey(consumerKey)
+			.setOAuthConsumerSecret(consumerSecret)
 			.setOAuthAccessToken("**************************************************")
 			.setOAuthAccessTokenSecret("******************************************");
 		twitter = new TwitterFactory(builder.build()).getInstance();
@@ -33,7 +45,7 @@ public class AuthTwitter {
 
 	public void setTwitterInstance() {
 		twitter = TwitterFactory.getSingleton();
-		twitter.setOAuthConsumer(CONSUMER_KEY, CONSUMER_SECRET);
+		twitter.setOAuthConsumer(consumerKey, consumerSecret);
 	}
 
 	public String getAuthURL() {
@@ -65,7 +77,7 @@ public class AuthTwitter {
 			e.printStackTrace();
 			return;
 		}
-		CONSUMER_KEY = prop.getProperty("Key");
-		CONSUMER_SECRET = prop.getProperty("Secret");
+		consumerKey = prop.getProperty("Key");
+		consumerSecret = prop.getProperty("Secret");
 	}
 }
