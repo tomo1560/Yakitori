@@ -78,7 +78,7 @@
          </font>
       </TitledPane>
       <Hyperlink layoutX="115.0" layoutY="64.0" prefHeight="23.0" prefWidth="222.0" style="-fx-background-color: bbb;" text="Link / nephy.jp" />
-      <MenuButton layoutX="252.0" layoutY="148.0" mnemonicParsing="false" text="Following">
+      <MenuButton layoutX="269.0" layoutY="116.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="83.0" text="Following">
         <items>
           <MenuItem mnemonicParsing="false" text="Action 1" />
           <MenuItem mnemonicParsing="false" text="Action 2" />
@@ -86,5 +86,8 @@
       </MenuButton>
       <TextFlow layoutX="115.0" layoutY="39.0" prefHeight="23.0" prefWidth="238.0" style="-fx-background-color: ccc;" />
       <TextFlow layoutX="115.0" layoutY="87.0" prefHeight="23.0" prefWidth="222.0" style="-fx-background-color: ccc;" />
+      <AnchorPane layoutX="15.0" layoutY="116.0" prefHeight="59.0" prefWidth="250.0" style="-fx-background-color: ddd;" />
+      <Button layoutX="311.0" layoutY="146.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="40.0" text="DM" />
+      <Button layoutX="269.0" layoutY="146.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="40.0" text="Reply" />
    </children>
 </AnchorPane>
