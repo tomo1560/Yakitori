@@ -1,13 +1,9 @@
 package jp.nephy.nephy.gui;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -21,10 +17,12 @@ import twitter4j.ResponseList;
 import twitter4j.Status;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
+import twitter4j.TwitterStream;
 
-public class WindowMainController implements Initializable {
+public class WindowMainController {
 	private AuthTwitter authTwitter = null;
 	private Twitter twitter = null;
+	private TwitterStream stream;
 
 	private Stage primaryStage;
 
@@ -37,18 +35,14 @@ public class WindowMainController implements Initializable {
 	public void setTwitter(AuthTwitter twitter){
 		this.authTwitter = twitter;
 		this.twitter = twitter.getTwitter();
-		listview_hometimeline.setCellFactory(listView -> new CellStatus());
-		ObservableList<Status> list = createStatus();
-		listview_hometimeline.setItems(list);
-		Streaming.userStreaming(list, authTwitter, listview_hometimeline);
 	}
 
 	public void setStage(Stage stage) {
 		primaryStage = stage;
 	}
 
-	@Override
-	public void initialize(URL arg0, ResourceBundle arg1) {
+	@FXML
+	private void initialize() {
 		button_tweet_post.setOnAction(e -> {
 			button_tweet_post.setDisable(true);
 			button_tweet_post.setText("Posting...");
@@ -62,6 +56,7 @@ public class WindowMainController implements Initializable {
 				alert.setTitle("ツイートに失敗 - Nephy ");
 				alert.setHeaderText("");
 				alert.setContentText("ツイートに失敗しました。エラーコード:" + er.getErrorCode());
+				alert.show();
 			} finally {
 				button_tweet_post.setText("Tweet");
 				button_tweet_post.setDisable(false);
@@ -69,14 +64,31 @@ public class WindowMainController implements Initializable {
 		});
 
 		menuitem_file_close.setOnAction(e -> {
-			Platform.exit();
+			handleExitRequest();
 		});
 		menuitem_help_about.setOnAction(e -> {
 			Alert alert = new Alert(AlertType.INFORMATION);
-			alert.setTitle("About");
+			alert.setTitle("About - Nephy");
 			alert.setHeaderText("Nephy");
 			alert.setContentText("");
+			alert.show();
 		});
+	}
+
+	public void reInitialize() {
+		primaryStage.setOnCloseRequest(e -> {
+			handleExitRequest();
+		});
+		listview_hometimeline.setCellFactory(listView -> new CellStatus());
+		ObservableList<Status> list = createStatus();
+		listview_hometimeline.setItems(list);
+		stream = Streaming.userStreaming(list, authTwitter, listview_hometimeline);
+		stream.user();
+	}
+
+	private void handleExitRequest() {
+		stream.shutdown();
+		Platform.exit();
 	}
 
 	private ObservableList<Status> createStatus(){

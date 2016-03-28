@@ -12,7 +12,7 @@ import twitter4j.conf.Configuration;
 import twitter4j.conf.ConfigurationBuilder;
 
 public class Streaming {
-	public static void userStreaming(ObservableList<Status> list, AuthTwitter authTwitter, ListView<Status> listView) {
+	public static TwitterStream userStreaming(ObservableList<Status> list, AuthTwitter authTwitter, ListView<Status> listView) {
 		ConfigurationBuilder builder = new ConfigurationBuilder();
 		builder.setOAuthConsumerKey(authTwitter.getConsumerKey());
 		builder.setOAuthConsumerSecret(authTwitter.getConsumerSecret());
@@ -53,6 +53,6 @@ public class Streaming {
 			}
 		};
 		stream.addListener(listener);
-		stream.user();
+		return stream;
 	}
 }

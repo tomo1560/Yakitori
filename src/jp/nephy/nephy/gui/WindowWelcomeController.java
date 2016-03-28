@@ -4,13 +4,10 @@ import java.awt.Desktop;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.net.URL;
 import java.util.Optional;
-import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -21,7 +18,7 @@ import javafx.stage.Stage;
 import jp.nephy.twitter.AuthTwitter;
 
 
-public class WindowWelcomeController implements Initializable{
+public class WindowWelcomeController {
 	Stage primaryStage;
 	AuthTwitter twitter = new AuthTwitter();
 
@@ -32,8 +29,8 @@ public class WindowWelcomeController implements Initializable{
 		primaryStage = stage;
 	}
 
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
+	@FXML
+	private void initialize() {
 		button_log_in.setOnAction(e -> {
 			TextInputDialog dialog = new TextInputDialog();
 			dialog.setTitle("Authorization - Nephy");
@@ -57,6 +54,7 @@ public class WindowWelcomeController implements Initializable{
 				WindowMainController controller = loader.getController();
 				controller.setTwitter(twitter);
 				controller.setStage(primaryStage);
+				controller.reInitialize();
 
 				Stage stage = new Stage();
 				stage.setScene(scene);
