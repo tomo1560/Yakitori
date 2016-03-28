@@ -71,6 +71,12 @@ public class WindowMainController implements Initializable {
 		menuitem_file_close.setOnAction(e -> {
 			Platform.exit();
 		});
+		menuitem_help_about.setOnAction(e -> {
+			Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setTitle("About");
+			alert.setHeaderText("Nephy");
+			alert.setContentText("");
+		});
 	}
 
 	private ObservableList<Status> createStatus(){
