@@ -79,7 +79,7 @@ public class WindowMainController {
 		primaryStage.setOnCloseRequest(e -> {
 			handleExitRequest();
 		});
-		listview_hometimeline.setCellFactory(listView -> new CellStatus());
+		listview_hometimeline.setCellFactory(listView -> new CellStatus(primaryStage, twitter));
 		ObservableList<Status> list = createStatus();
 		listview_hometimeline.setItems(list);
 		stream = Streaming.userStreaming(list, authTwitter, listview_hometimeline);

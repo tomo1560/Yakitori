@@ -1,33 +1,25 @@
 package jp.nephy.nephy.gui;
 
 import java.io.IOException;
-import java.util.concurrent.ConcurrentHashMap;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.ListCell;
-import javafx.scene.image.Image;
+import javafx.stage.Stage;
 import twitter4j.Status;
+import twitter4j.Twitter;
 
 public class CellStatus extends ListCell<Status>{
-	static ConcurrentHashMap<Long, Image> imageCache;
+	private Stage primaryStage;
+	private ImageCache cache;
 
 	private CellStatusController controller;
+	private Twitter twitter;
 
-	public static ConcurrentHashMap<Long, Image> getImageCache() {
-		return imageCache;
-	}
-
-	public static void setImageCache(long id, Image image) {
-		imageCache.put(id, image);
-	}
-
-	public CellStatus(){
-		imageCache = new ConcurrentHashMap<>();
-		initComponent();
-	}
-
-	private void initComponent() {
+	public CellStatus(Stage stage, Twitter twitter){
+		cache = new ImageCache();
+		this.twitter = twitter;
+		primaryStage = stage;
 	}
 
 	@Override
@@ -49,10 +41,12 @@ public class CellStatus extends ListCell<Status>{
 				e.printStackTrace();;
 			}
 			controller = loader.getController();
+			controller.setFields(primaryStage, twitter, cache);
 			setGraphic(node);
-			controller.update(item, getListView(), imageCache);
+			controller.update(item, getListView());
 		} else {
-			controller.update(item, getListView(), imageCache);
+			controller.setFields(primaryStage, twitter, cache);
+			controller.update(item, getListView());
 		}
 
 	}
