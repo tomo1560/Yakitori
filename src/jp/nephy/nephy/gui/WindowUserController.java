@@ -21,14 +21,16 @@ public class WindowUserController {
 	private Twitter twitter = null;
 	private ImageCache cache;
 
-	@FXML VBox window_user_vbox_detail;
-	@FXML ImageView window_user_imageview_user_icon;
-	@FXML Text window_user_text_user_name;
-	@FXML Text window_user_text_screen_name;
-	@FXML Text window_user_text_location;
-	@FXML Text window_user_text_bio;
-	@FXML Hyperlink window_user_hyperlink_link;
-	@FXML Button window_user_button_show_detail;
+	private boolean isDetailShown = false;
+
+	@FXML private VBox window_user_vbox_detail;
+	@FXML private ImageView window_user_imageview_user_icon;
+	@FXML private Text window_user_text_user_name;
+	@FXML private Text window_user_text_screen_name;
+	@FXML private Text window_user_text_location;
+	@FXML private Text window_user_text_bio;
+	@FXML private Hyperlink window_user_hyperlink_link;
+	@FXML private Button window_user_button_show_detail;
 
 	public void setStage(Stage stage) {
 		primaryStage = stage;
@@ -54,7 +56,15 @@ public class WindowUserController {
 	public void initialize() {
 		Utils.hidePane(window_user_vbox_detail);
 		window_user_button_show_detail.setOnAction(e -> {
-			Utils.showPane(window_user_vbox_detail);
+			if(!isDetailShown) {
+				Utils.showPane(window_user_vbox_detail);
+				window_user_button_show_detail.setText("△");
+				isDetailShown = true;
+			} else {
+				Utils.hidePane(window_user_vbox_detail);
+				window_user_button_show_detail.setText("▽");
+				isDetailShown = false;
+			}
 		});
 	}
 
