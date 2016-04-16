@@ -41,13 +41,12 @@ public class JustInWeatherInformation {
 	}
 
 	public static void connect() {
-		System.out.println("www");
 		WebSocketContainer container = ContainerProvider.getWebSocketContainer();
 		Class<?> c = JustInWeatherInformation.class;
 
 		// 接続
 		try (Session session = container.connectToServer(
-				c, URI.create("ws://cloud1.aitc.jp:443/websocket/WSServlet"))) {
+				c, URI.create("ws://api.nephy.jp/v1/ws/emergency"))) {
 			connected = true;
 
 			while (connected) {
