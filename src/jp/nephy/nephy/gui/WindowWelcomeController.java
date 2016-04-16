@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Optional;
-
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -16,7 +15,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextInputDialog;
 import javafx.stage.Stage;
 import jp.nephy.twitter.AuthTwitter;
-
+import jp.nephy.nephy.gui.WindowWebBrowserController;
 
 public class WindowWelcomeController {
 	Stage primaryStage;

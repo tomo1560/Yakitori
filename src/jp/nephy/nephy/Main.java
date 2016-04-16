@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import jp.nephy.nephy.gui.WindowWelcomeController;
+import jp.nephy.nephy.ThreadPlugin;
 
 public class Main extends Application {
 	@Override
@@ -29,6 +30,7 @@ public class Main extends Application {
 	}
 
 	public static void main(String[] args) {
+		ThreadPlugin.main();
 		launch(args);
 	}
 }

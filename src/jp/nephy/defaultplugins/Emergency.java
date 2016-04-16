@@ -1,4 +1,4 @@
-package jp.nephy.test;
+package jp.nephy.defaultplugins;
 
 import java.net.URI;
 import javax.websocket.ClientEndpoint;
@@ -12,7 +12,7 @@ import javax.websocket.Session;
 import javax.websocket.WebSocketContainer;
 
 @ClientEndpoint
-public class JustInWeatherInformation {
+public class Emergency {
 	static boolean connected = false;
 
 	@OnError
