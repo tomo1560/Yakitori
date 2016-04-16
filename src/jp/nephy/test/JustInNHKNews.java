@@ -13,6 +13,7 @@ public class JustInNHKNews {
 	public static void main(String[] args) {
 		String path = "http://www3.nhk.or.jp/rss/news/cat-live.xml";
 		parseXML(path);
+		//Thread.sleep(1000);
 	}
 
 	public static void parseXML(String path) {

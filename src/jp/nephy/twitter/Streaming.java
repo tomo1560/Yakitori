@@ -30,26 +30,27 @@ public class Streaming {
 			@Override
 			public void onException(Exception e) {
 				e.printStackTrace();
+				//ロガーに回す
 			}
 
 			@Override
 			public void onDeletionNotice(StatusDeletionNotice arg0) {
-
+				//削除されたツイートをタイムラインから削除する操作 (設定で無効にできるようにする)
 			}
 
 			@Override
 			public void onScrubGeo(long arg0, long arg1) {
-
+				//位置情報の一括削除; 該当ツイートから位置情報を削除する操作(設定で無効にできるようにする)
 			}
 
 			@Override
 			public void onStallWarning(StallWarning arg0) {
-
+				//UserStreamに関する警告
 			}
 
 			@Override
 			public void onTrackLimitationNotice(int arg0) {
-
+				//Trackのリミットについての警告
 			}
 		};
 		stream.addListener(listener);
