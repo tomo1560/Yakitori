@@ -1,14 +1,11 @@
 *.class
-*.ini
 *.properties
 
 .project
 .DS_Store
 
 .settings/
-Android/
-bin/
-.metadata/.plugins/org.eclipse.ui.workbench/workingsets.xml
+bin/.metadata/.plugins/org.eclipse.ui.workbench/workingsets.xml
 .metadata/.plugins/org.eclipse.ui.workbench/dialog_settings.xml
 .metadata/.copied.metadata.default
 .metadata/.lock
