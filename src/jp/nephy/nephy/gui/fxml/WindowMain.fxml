@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
 <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="405.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jp.nephy.nephy.gui.WindowMainController">
@@ -32,9 +37,27 @@
             <TextArea fx:id="textarea_tweet_content" layoutX="5.0" layoutY="5.0" maxHeight="-Infinity" promptText="What are you doing?" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
          </children>
       </AnchorPane>
-      <AnchorPane GridPane.rowIndex="2">
+      <AnchorPane maxHeight="-Infinity" minHeight="-Infinity" prefHeight="45.0" GridPane.rowIndex="2">
          <children>
-            <Button fx:id="button_tweet_post" layoutX="165.0" layoutY="83.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Tweet" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
+            <HBox layoutX="236.0" layoutY="5.0" nodeOrientation="RIGHT_TO_LEFT" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+               <children>
+                  <Button fx:id="button_tweet_post" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefWidth="100.0" text="Tweet">
+                     <HBox.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </HBox.margin>
+                  </Button>
+                  <ToggleButton fx:id="window_main_togglebutton_upload_images" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"  mnemonicParsing="false">
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0">
+                           <Image url="@../../resources/icons/images.png" />
+                        </ImageView>
+                     </graphic>
+                     <HBox.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </HBox.margin>
+                  </ToggleButton>
+               </children>
+            </HBox>
          </children>
       </AnchorPane>
       <MenuBar>
