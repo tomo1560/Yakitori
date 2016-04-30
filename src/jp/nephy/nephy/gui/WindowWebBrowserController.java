@@ -23,7 +23,7 @@ public class WindowWebBrowserController implements Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		primaryStage.setTitle("Browser - Nephy");
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("WindowWebBrowser.fxml"));
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/WindowWebBrowser.fxml"));
 		Scene scene = null;
 		try {
 			scene = loader.load();

@@ -33,7 +33,7 @@ public class CellStatus extends ListCell<Status>{
 		}
 
 		if(controller == null || getGraphic() == null){
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("CellStatus.fxml"));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/CellStatus.fxml"));
 			Node node = null;
 			try{
 				node = loader.load();

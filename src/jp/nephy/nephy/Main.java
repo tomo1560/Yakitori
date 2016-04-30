@@ -8,19 +8,18 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import jp.nephy.nephy.gui.WindowWelcomeController;
-import jp.nephy.nephy.ThreadPlugin;
 
 public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("gui/WindowWelcome.fxml"));
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("gui/fxml/WindowWelcome.fxml"));
 		Scene scene = null;
 		try {
 			scene = new Scene((Parent)loader.load());
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		scene.getStylesheets().add(getClass().getResource("gui/application.css").toExternalForm());
+		scene.getStylesheets().add(getClass().getResource("gui/css/application.css").toExternalForm());
 
 		WindowWelcomeController controller = (WindowWelcomeController)loader.getController();
 		controller.setStage(primaryStage);
@@ -30,7 +29,7 @@ public class Main extends Application {
 	}
 
 	public static void main(String[] args) {
-		ThreadPlugin.main();
+	//	ThreadPlugin.main();
 		launch(args);
 	}
 }
