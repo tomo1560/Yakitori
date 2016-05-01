@@ -1,5 +1,7 @@
 package jp.nephy.nephy.gui;
 
+import java.io.File;
+
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -10,11 +12,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.ToggleButton;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import jp.nephy.twitter.AuthTwitter;
 import jp.nephy.twitter.Streaming;
 import twitter4j.ResponseList;
 import twitter4j.Status;
+import twitter4j.StatusUpdate;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import twitter4j.TwitterStream;
@@ -26,9 +31,13 @@ public class WindowMainController {
 
 	private Stage primaryStage;
 
+	private boolean isSettedImage = false;
+	private File image;
+
 	@FXML private ListView<Status> listview_hometimeline;
 	@FXML private TextArea textarea_tweet_content;
 	@FXML private Button button_tweet_post;
+	@FXML private ToggleButton window_main_togglebutton_upload_images;
 	@FXML private MenuItem menuitem_file_close, menuitem_help_about,menuitem_tools_settings;
 
 
@@ -47,7 +56,11 @@ public class WindowMainController {
 			button_tweet_post.setDisable(true);
 			button_tweet_post.setText("Posting...");
 			try {
-				twitter.updateStatus(textarea_tweet_content.getText());
+				if(isSettedImage) {
+					twitter.updateStatus(new StatusUpdate(textarea_tweet_content.getText()).media(image));
+				} else {
+					twitter.updateStatus(textarea_tweet_content.getText());
+				}
 				textarea_tweet_content.setText("");
 				textarea_tweet_content.setPromptText("What are you doing?");
 			} catch (TwitterException er) {
@@ -60,6 +73,24 @@ public class WindowMainController {
 			} finally {
 				button_tweet_post.setText("Tweet");
 				button_tweet_post.setDisable(false);
+			}
+		});
+
+		window_main_togglebutton_upload_images.setOnAction(e -> {
+			if(isSettedImage) {
+				image = null;
+				isSettedImage = false;
+				window_main_togglebutton_upload_images.setSelected(false);
+			} else {
+				FileChooser fc = new FileChooser();
+				fc.setTitle("Open - Nephy");
+				image = fc.showOpenDialog(primaryStage);
+				if (image != null) {
+					isSettedImage = true;
+					window_main_togglebutton_upload_images.setSelected(true);
+				} else {
+					window_main_togglebutton_upload_images.setSelected(false);
+				}
 			}
 		});
 
@@ -80,7 +111,7 @@ public class WindowMainController {
 			handleExitRequest();
 		});
 		listview_hometimeline.setCellFactory(listView -> new CellStatus(primaryStage, twitter));
-		ObservableList<Status> list = createStatus();
+		ObservableList<Status> list = createHomeTimeline();
 		listview_hometimeline.setItems(list);
 		stream = Streaming.userStreaming(list, authTwitter, listview_hometimeline);
 		stream.user();
@@ -91,7 +122,7 @@ public class WindowMainController {
 		Platform.exit();
 	}
 
-	private ObservableList<Status> createStatus(){
+	private ObservableList<Status> createHomeTimeline() {
 		ResponseList<Status> timeline = null;
 		ObservableList<Status> list = FXCollections.observableArrayList();
 		try {

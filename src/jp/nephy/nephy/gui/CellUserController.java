@@ -34,7 +34,7 @@ public class CellUserController {
 		cell_user_text_bio.setText(item.getDescription());
 		cell_user_imageview_icon.setImage(cache.imageCache(item));
 		cell_user_imageview_icon.setOnMouseClicked(e -> {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("WindowUser.fxml"));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/WindowUser.fxml"));
 			Scene scene = null;
 			try {
 				scene = new Scene((Parent)loader.load());

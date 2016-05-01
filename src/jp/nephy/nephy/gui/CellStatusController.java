@@ -28,10 +28,6 @@ public class CellStatusController {
 		this.cache = cache;
 	}
 
-	@FXML
-	public void initialize() {
-	}
-
 	public void update(Status item, ListView<Status> list){
 		text_user_name.wrappingWidthProperty().bind(list.widthProperty().subtract(30));
 		text_status_content.wrappingWidthProperty().bind(list.widthProperty().subtract(30));
@@ -40,7 +36,7 @@ public class CellStatusController {
 		text_status_content.setText(item.getText());
 		imageview_user_icon.setImage(cache.imageCache(item.getUser()));
 		imageview_user_icon.setOnMouseClicked(e -> {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("WindowUser.fxml"));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/WindowUser.fxml"));
 			Scene scene = null;
 			try {
 				scene = new Scene((Parent)loader.load());

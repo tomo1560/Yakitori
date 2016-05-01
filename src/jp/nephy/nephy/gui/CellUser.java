@@ -32,7 +32,7 @@ public class CellUser extends ListCell<User> {
 			return;
 		}
 		if(controller == null || getGraphic() == null){
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("CellUser.fxml"));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/CellUser.fxml"));
 			Node node = null;
 			try{
 				node = loader.load();

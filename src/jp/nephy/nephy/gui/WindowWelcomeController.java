@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Optional;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -15,7 +16,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextInputDialog;
 import javafx.stage.Stage;
 import jp.nephy.twitter.AuthTwitter;
-import jp.nephy.nephy.gui.WindowWebBrowserController;
 
 public class WindowWelcomeController {
 	Stage primaryStage;
@@ -43,7 +43,7 @@ public class WindowWelcomeController {
 			Optional<String> result = dialog.showAndWait();
 			if(result.isPresent()) {
 				twitter.setAccessToken(result.get());
-				FXMLLoader loader = new FXMLLoader(getClass().getResource("WindowMain.fxml"));
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/WindowMain.fxml"));
 				Scene scene = null;
 				try {
 					scene = new Scene((Parent)loader.load());

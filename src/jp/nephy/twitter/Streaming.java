@@ -1,7 +1,10 @@
 package jp.nephy.twitter;
 
 import javafx.collections.ObservableList;
+import javafx.concurrent.Service;
+import javafx.concurrent.Task;
 import javafx.scene.control.ListView;
+import jp.nephy.nephy.gui.Utils;
 import twitter4j.StallWarning;
 import twitter4j.Status;
 import twitter4j.StatusDeletionNotice;
@@ -23,8 +26,22 @@ public class Streaming {
 		StatusListener listener = new StatusListener() {
 			@Override
 			public void onStatus(Status status) {
-				list.add(0, status);
-				listView.setItems(list);
+				new Service<Void>() {
+					@Override
+					protected Task<Void> createTask() {
+						return new Task<Void>() {
+							@Override
+							protected Void call() throws Exception {
+								Utils.getFromApplicationThread(() -> {
+									list.add(0, status);
+									listView.setItems(list);
+									return null;
+								});
+								return null;
+							}
+						};
+					}
+				}.start();
 			}
 
 			@Override
