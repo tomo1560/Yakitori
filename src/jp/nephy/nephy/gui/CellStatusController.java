@@ -29,8 +29,8 @@ public class CellStatusController {
 	}
 
 	public void update(Status item, ListView<Status> list){
-		text_user_name.wrappingWidthProperty().bind(list.widthProperty().subtract(30));
-		text_status_content.wrappingWidthProperty().bind(list.widthProperty().subtract(30));
+		text_user_name.wrappingWidthProperty().bind(list.widthProperty().subtract(90));
+		text_status_content.wrappingWidthProperty().bind(list.widthProperty().subtract(90));
 
 		text_user_name.setText(item.getUser().getName() + " @" + item.getUser().getScreenName());
 		text_status_content.setText(item.getText());
