@@ -130,9 +130,7 @@ public class WindowMainController {
 		} catch (TwitterException e) {
 			e.printStackTrace();
 		}
-		for(Status item : timeline) {
-			list.add(item);
-		}
+		list.addAll(timeline);
 		return list;
 	}
 }

@@ -1,5 +1,6 @@
 package jp.nephy.nephy.gui;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
@@ -110,34 +111,40 @@ public class WindowUserController {
 
 	private ObservableList<Status> createUserStatus() {
 		ResponseList<Status> userTimeline = null;
+		ObservableList<Status> list = FXCollections.observableArrayList();
 		try {
 			userTimeline = twitter.getUserTimeline(userId);
 		} catch (TwitterException e) {
 			e.printStackTrace();
 			return null;
 		}
-		return Utils.toObservableList(userTimeline);
+		list.addAll(userTimeline);
+		return list;
 	}
 
 	private ObservableList<Status> createUserLikes() {
 		ResponseList<Status> userLikes = null;
+		ObservableList<Status> list = FXCollections.observableArrayList();
 		try {
 			userLikes = twitter.getFavorites(userId);
 		} catch (TwitterException e) {
 			e.printStackTrace();
 			return null;
 		}
-		return Utils.toObservableList(userLikes);
+		list.addAll(userLikes);
+		return list;
 	}
 
 	private ObservableList<User> createFollowing() {
 		ResponseList<User> userFollowing = null;
+		ObservableList<User> list = FXCollections.observableArrayList();
 		try {
 			userFollowing = twitter.getFriendsList(userId, 1);
 		} catch (TwitterException e) {
 			e.printStackTrace();
 			return null;
 		}
-		return Utils.toObservableList(userFollowing);
+		list.addAll(userFollowing);
+		return list;
 	}
 }
