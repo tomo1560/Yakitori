@@ -1,0 +1,3 @@
+﻿<Properties StartupItem="iOS/Nephy.iOS.csproj">
+  <MonoDevelop.Ide.ItemProperties.Nephy.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.5CA945ED-C432-4FC9-B396-6A495573D107" />
+</Properties>
