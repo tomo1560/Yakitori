@@ -1,9 +1,11 @@
+  
 <p align="center"><img src="https://nephy.jp/assets/img/logo.png" width="150px"></p>  
 <h1 align="center">Nephy</h1>  
 <p align="center">A Powerful Twitter Client, Including Universal Supports.<br>  
 <a href="http://nephy.jp/projects/nephy">nephy.jp</a></p>  
+  
 
----
+--
 
 ### 機能実装の提案、バグ報告など
 
@@ -46,3 +48,7 @@ Nephyではタスク管理を[Waffle.io](https://waffle.io)にて行っていま
 
 <iframe src="https://ghbtns.com/github-btn.html?NephyProject&type=follow&count=true"
   allowtransparency="true" frameborder="0" scrolling="0" width="165" height="20"></iframe>
+
+<style>
+.markdown-body h1 { border-bottom: none; }
+</style>
