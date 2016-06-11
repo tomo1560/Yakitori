@@ -1,9 +1,16 @@
   
 <p align="center"><img src="https://nephy.jp/assets/img/logo.png" width="150px"></p>  
 <h1 align="center">Nephy</h1>  
-<p align="center">A Powerful Twitter Client, Including Universal Supports.<br>  
-<a href="http://nephy.jp/projects/nephy">nephy.jp</a></p>  
-  
+<p align="center">A Powerful Twitter Client, Including Universal Supports.</p> 
+<p align="center"><a href="http://nephy.jp/projects/nephy">nephy.jp</a></p> 
+<p align="center">
+<a align="center" href="https://github.com/NephyProject/Nephy">
+  <img src="https://img.shields.io/badge/Version-Deveroping-yellow.svg">
+</a>
+<a align="center" href="https://github.com/NephyProject/Nephy/wiki/ライセンス">
+  <img src="https://img.shields.io/badge/License-MIT-blue.svg">
+</a>
+</p>
 
 --
 
@@ -48,7 +55,3 @@ Nephyではタスク管理を[Waffle.io](https://waffle.io)にて行っていま
 
 <iframe src="https://ghbtns.com/github-btn.html?NephyProject&type=follow&count=true"
   allowtransparency="true" frameborder="0" scrolling="0" width="165" height="20"></iframe>
-
-<style>
-.markdown-body h1 { border-bottom: none; }
-</style>
