@@ -1,9 +1,9 @@
 ﻿using System;
 namespace NephyPCL
 {
-	public class MyClass
+	public class OAuthHandler
 	{
-		public MyClass()
+		public OAuthHandler()
 		{
 		}
 	}
