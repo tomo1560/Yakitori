@@ -40,9 +40,9 @@ namespace Yakitori.Core
                 {
                     continue;
                 }
-                IPlugin plugin = Activator.CreateInstance(type) as IPlugin;
-                if (plugin != null)
+                if (type.GetInterface("Yakitori.Core.IPlugin") != null)
                 {
+                    IPlugin plugin = (IPlugin) Activator.CreateInstance(type)n;
                     string id = plugin.PluginID;
                     plugins.Add(id, plugin);
                 }
