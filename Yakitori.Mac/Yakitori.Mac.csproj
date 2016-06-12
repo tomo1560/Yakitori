@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">iPhone</Platform>
-    <ProjectGuid>{64AD35A9-78FA-4121-82D1-97C2F88BE01B}</ProjectGuid>
+    <ProjectGuid>{6E70B8F5-9F7C-432C-97E8-B68DA156FBE8}</ProjectGuid>
     <ProjectTypeGuids>{A3F8F2AB-B479-4A4A-A458-A89E7DC349F1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Exe</OutputType>
     <RootNamespace>Yakitori.Mac</RootNamespace>
