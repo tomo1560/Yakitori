@@ -1,6 +1,6 @@
 ﻿using System;
 // using AsyncOAuth;
-namespace Yakitori
+namespace Yakitori.Network
 {
     public class OAuthHandler
     {

@@ -1,5 +1,5 @@
 ﻿using System;
-namespace Yakitori
+namespace Yakitori.Network
 {
     public class TwitterAPI
     {
