@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yakitori.UITests", "UITests
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Yakitori.Core", "Yakitori.Core\Yakitori.Core.shproj", "{689C1C25-1262-4748-9844-506FA2DDDE5A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yakitori.Mac", "Yakitori.Mac\Yakitori.Mac.csproj", "{96C9E60F-E8C0-4984-A8D1-DB67C14F65FD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|iPhoneSimulator = Debug|iPhoneSimulator
