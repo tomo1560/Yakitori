@@ -42,7 +42,7 @@ namespace Yakitori.Core
                 }
                 if (type.GetInterface("Yakitori.Core.IPlugin") != null)
                 {
-                    IPlugin plugin = (IPlugin) Activator.CreateInstance(type)n;
+                    IPlugin plugin = (IPlugin) Activator.CreateInstance(type);
                     string id = plugin.PluginID;
                     plugins.Add(id, plugin);
                 }
