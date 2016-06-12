@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>{F630B4BE-EA28-4BE7-A419-9C0EE9BA222B}</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Yakitori.Network</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Cryptographer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)OAuthHandler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TwitterAPI.cs" />
+  </ItemGroup>
+</Project>
