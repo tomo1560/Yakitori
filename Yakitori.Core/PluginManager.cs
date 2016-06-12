@@ -1,11 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 namespace Yakitori.Core
 {
 	public class PluginManager
 	{
-		readonly DirectoryInfo PluginDirectory;
+		private readonly DirectoryInfo PluginDirectory;
+        private Dictionary<string, IPlugin> plugins = new Dictionary<string, IPlugin>();
 
 		public PluginManager()
 		{
@@ -26,8 +28,35 @@ namespace Yakitori.Core
 			foreach (var file in PluginDirectory.GetFiles("*.dll"))
 			{
 				var asm = Assembly.LoadFrom(file.FullName);
+                LoadPlugin(asm);
 			}
 		}
-	}
+
+        private void LoadPlugin(Assembly asm)
+        {
+            foreach (var type in asm.GetTypes())
+            {
+                if (type.IsInterface)
+                {
+                    continue;
+                }
+                IPlugin plugin = Activator.CreateInstance(type) as IPlugin;
+                if (plugin != null)
+                {
+                    string id = plugin.PluginID;
+                    plugins.Add(id, plugin);
+                }
+            }
+        }
+
+        public IPlugin GetPlugin(string id)
+        {
+            if (plugins.ContainsKey(id))
+            {
+                return plugins[id];
+            }
+            return null;
+        }
+    }
 }
 
