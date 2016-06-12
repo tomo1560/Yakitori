@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yakitori.Droid", "Droid\Yak
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yakitori.UITests", "UITests\Yakitori.UITests.csproj", "{176B4188-FE35-4865-8574-A1A64B7CFBE3}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Yakitori.Core", "Yakitori.Core\Yakitori.Core.shproj", "{689C1C25-1262-4748-9844-506FA2DDDE5A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|iPhoneSimulator = Debug|iPhoneSimulator
