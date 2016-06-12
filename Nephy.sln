@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nephy.UITests", "UITests\Ne
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NephyPCL", "NephyPCL\NephyPCL.csproj", "{659816A7-64CB-4D70-9A49-5D5DBEC3621C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nephy.Plugins", "Nephy.Plugins\Nephy.Plugins.csproj", "{563A92DB-FE4C-4510-B989-34570A22BABC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,5 +83,17 @@ Global
 		{659816A7-64CB-4D70-9A49-5D5DBEC3621C}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{659816A7-64CB-4D70-9A49-5D5DBEC3621C}.Debug|iPhone.ActiveCfg = Debug|Any CPU
 		{659816A7-64CB-4D70-9A49-5D5DBEC3621C}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{563A92DB-FE4C-4510-B989-34570A22BABC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{563A92DB-FE4C-4510-B989-34570A22BABC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{563A92DB-FE4C-4510-B989-34570A22BABC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{563A92DB-FE4C-4510-B989-34570A22BABC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{563A92DB-FE4C-4510-B989-34570A22BABC}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{563A92DB-FE4C-4510-B989-34570A22BABC}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{563A92DB-FE4C-4510-B989-34570A22BABC}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{563A92DB-FE4C-4510-B989-34570A22BABC}.Release|iPhone.Build.0 = Release|Any CPU
+		{563A92DB-FE4C-4510-B989-34570A22BABC}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{563A92DB-FE4C-4510-B989-34570A22BABC}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{563A92DB-FE4C-4510-B989-34570A22BABC}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{563A92DB-FE4C-4510-B989-34570A22BABC}.Debug|iPhone.Build.0 = Debug|Any CPU
 	EndGlobalSection
 EndGlobal
