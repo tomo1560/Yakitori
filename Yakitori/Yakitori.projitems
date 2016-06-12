@@ -19,5 +19,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)YakitoriPage.xaml.cs">
       <DependentUpon>YakitoriPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Utility.cs" />
   </ItemGroup>
 </Project>
