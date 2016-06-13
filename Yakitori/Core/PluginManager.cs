@@ -7,10 +7,12 @@ namespace Yakitori.Core
 {
 	public class PluginManager
 	{
-		private readonly DirectoryInfo PluginDirectory;
-        private Dictionary<string, IPlugin> plugins = new Dictionary<string, IPlugin>();
+        public static readonly PluginManager Instance = new PluginManager();
 
-		public PluginManager()
+		private readonly DirectoryInfo PluginDirectory;
+        private Dictionary<string, PluginBase> Plugins = new Dictionary<string, PluginBase>();
+
+		private PluginManager()
 		{
 			var current = Environment.CurrentDirectory;
 			var dir = Path.Combine(current, "plugins");
@@ -28,34 +30,34 @@ namespace Yakitori.Core
 		{
 			foreach (var file in PluginDirectory.GetFiles("*.dll"))
 			{
-				var asm = Assembly.LoadFrom(file.FullName);
-                LoadPlugin(asm);
+                LoadPlugin(file);
 			}
 		}
 
-        private void LoadPlugin(Assembly asm)
+        private void LoadPlugin(FileInfo file)
         {
+            var asm = Assembly.LoadFrom(file.FullName);
             foreach (var type in asm.GetTypes())
             {
                 if (type.IsInterface)
                 {
                     continue;
                 }
-                if (type.GetInterface("Yakitori.Core.IPlugin") != null)
+                if (type.BaseType.FullName == "Yakitori.Core.PluginBase")
                 {
-                    IPlugin plugin = (IPlugin) Activator.CreateInstance(type);
+                    PluginBase plugin = (PluginBase) Activator.CreateInstance(type);
                     string id = plugin.PluginID;
-                    plugins.Add(id, plugin);
-                    plugin.OnEnable();
+                    Plugins.Add(id, plugin);
+                    plugin.SetEnable();
                 }
             }
         }
 
-        public IPlugin GetPlugin(string id)
+        public PluginBase GetPlugin(string id)
         {
-            if (plugins.ContainsKey(id))
+            if (Plugins.ContainsKey(id))
             {
-                return plugins[id];
+                return Plugins[id];
             }
             return null;
         }
