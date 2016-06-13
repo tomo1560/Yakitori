@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Yakitori.Core.Plugin
 {
-    class PluginInfo
+    public class PluginInfo
     {
         public readonly string MainClass;
         public readonly string PluginId;
