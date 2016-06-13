@@ -3,7 +3,7 @@
   <PropertyGroup>
     <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
     <HasSharedItems>true</HasSharedItems>
-    <SharedGUID>{4110E70A-7360-4AF5-BB93-DE5CCDF277CC}</SharedGUID>
+    <SharedGUID>{E71E0D21-4993-492E-BAB8-85091E32C578}</SharedGUID>
   </PropertyGroup>
   <PropertyGroup Label="Configuration">
     <Import_RootNamespace>Yakitori</Import_RootNamespace>
@@ -19,6 +19,18 @@
     <Compile Include="$(MSBuildThisFileDirectory)YakitoriPage.xaml.cs">
       <DependentUpon>YakitoriPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Core\Plugin\PluginBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\Plugin\PluginInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\Plugin\PluginManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\Plugin\Attribute\YakitoriPluginAuthor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\Plugin\Attribute\YakitoriPluginClass.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\Plugin\Attribute\YakitoriPluginDescription.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\Plugin\Attribute\YakitoriPluginID.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\Plugin\Attribute\YakitoriPluginName.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\Plugin\Attribute\YakitoriPluginVersion.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Network\Cryptographer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Network\OAuthHandler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Network\TwitterAPI.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utility.cs" />
   </ItemGroup>
 </Project>
