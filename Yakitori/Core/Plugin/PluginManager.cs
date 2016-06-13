@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using Yakitori.Core.Plugin.Attribute;
 
 namespace Yakitori.Core.Plugin
 {
@@ -41,14 +42,15 @@ namespace Yakitori.Core.Plugin
             try
             {
                 YakitoriPluginClass main = asm.GetCustomAttribute<YakitoriPluginClass>();
-                if (main == null)
+                YakitoriPluginID id = asm.GetCustomAttribute<YakitoriPluginID>();
+                if (main == null || id == null)
                 {
                     return;
                 }
                 PluginBase plugin = asm.CreateInstance(main.PluginClass) as PluginBase;
                 if (plugin != null)
                 {
-                    Plugins.Add(plugin.PluginID, plugin);
+                    Plugins.Add(id.PluginID, plugin);
                     plugin.SetEnable();
                 }
             }
