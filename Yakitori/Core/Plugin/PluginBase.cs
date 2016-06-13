@@ -1,4 +1,4 @@
-﻿namespace Yakitori.Core
+﻿namespace Yakitori.Core.Plugin
 {
     public abstract class PluginBase
     {

@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 
-namespace Yakitori.Core
+namespace Yakitori.Core.Plugin
 {
 	public class PluginManager
 	{
