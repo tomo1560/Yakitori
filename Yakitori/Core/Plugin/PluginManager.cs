@@ -38,20 +38,21 @@ namespace Yakitori.Core.Plugin
         private void LoadPlugin(FileInfo file)
         {
             var asm = Assembly.LoadFrom(file.FullName);
-            foreach (var type in asm.GetTypes())
+            try
             {
-                if (type.IsInterface)
+                YakitoriPluginClass main = asm.GetCustomAttribute<YakitoriPluginClass>();
+                if (main == null)
                 {
-                    continue;
+                    return;
                 }
-                if (type.BaseType.FullName == "Yakitori.Core.PluginBase")
+                PluginBase plugin = asm.CreateInstance(main.PluginClass) as PluginBase;
+                if (plugin != null)
                 {
-                    PluginBase plugin = (PluginBase) Activator.CreateInstance(type);
-                    string id = plugin.PluginID;
-                    Plugins.Add(id, plugin);
+                    Plugins.Add(plugin.PluginID, plugin);
                     plugin.SetEnable();
                 }
             }
+            catch {}
         }
 
         public PluginBase GetPlugin(string id)
