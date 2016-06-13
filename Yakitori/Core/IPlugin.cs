@@ -4,7 +4,7 @@
     {
         string PluginID { get; }
 
-        void OnEnable();
-        void OnDisable();
+        bool OnEnable();
+        bool OnDisable();
     }
 }
