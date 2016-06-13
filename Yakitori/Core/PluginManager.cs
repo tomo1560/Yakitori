@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 
 namespace Yakitori.Core
@@ -60,6 +61,11 @@ namespace Yakitori.Core
                 return Plugins[id];
             }
             return null;
+        }
+
+        public IList<PluginBase> GetLoadedPlugins()
+        {
+            return Plugins.Values.ToList();
         }
     }
 }
