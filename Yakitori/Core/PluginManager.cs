@@ -13,7 +13,7 @@ namespace Yakitori.Core
 		public PluginManager()
 		{
 			var current = Environment.CurrentDirectory;
-			var dir = System.IO.Path.Combine(current, "plugins");
+			var dir = Path.Combine(current, "plugins");
 			if (Directory.Exists(dir))
 			{
 				PluginDirectory = new DirectoryInfo(dir);
@@ -46,6 +46,7 @@ namespace Yakitori.Core
                     IPlugin plugin = (IPlugin) Activator.CreateInstance(type);
                     string id = plugin.PluginID;
                     plugins.Add(id, plugin);
+                    plugin.OnEnable();
                 }
             }
         }
