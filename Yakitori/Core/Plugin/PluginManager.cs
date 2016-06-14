@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Reflection;
 using Yakitori.Core.Plugin.Attribute;
 
@@ -9,14 +8,14 @@ namespace Yakitori.Core.Plugin
 {
 	public class PluginManager
 	{
-        public static readonly PluginManager Instance = new PluginManager();
-
-		private readonly DirectoryInfo PluginDirectory;
-        private IDictionary<string, PluginBase> Plugins = new Dictionary<string, PluginBase>();
+        private readonly DirectoryInfo PluginDirectory;
+        private IDictionary<string, YakitoriPlugin> Plugins = new Dictionary<string, YakitoriPlugin>();
         private IList<PluginInfo> PluginInfoList = new List<PluginInfo>();
+        private IPluginLoader Loader;
 
-		private PluginManager()
+		public PluginManager(IPluginLoader loader)
 		{
+            Loader = loader;
 			var current = Environment.CurrentDirectory;
 			var dir = Path.Combine(current, "plugins");
 			if (Directory.Exists(dir))
@@ -31,7 +30,7 @@ namespace Yakitori.Core.Plugin
 
 		public void LoadPlugins()
 		{
-			foreach (var file in PluginDirectory.GetFiles("*.dll"))
+			foreach (var file in PluginDirectory.GetFiles("*.ypp"))
 			{
                 LoadPlugin(file);
 			}
@@ -39,24 +38,24 @@ namespace Yakitori.Core.Plugin
 
         private void LoadPlugin(FileInfo file)
         {
-            var asm = Assembly.LoadFrom(file.FullName);
-            PluginInfo info = parseAttributes(asm);
-            if (info == null)
+            PluginInfo info = Loader.GetPluginInfo(file);
+            if (info != null)
             {
-                // ToDo : 後々Logでどうのこうのしましょう
-                Console.WriteLine(file.Name + "はYakitoriPluginではありません。");
-                return;
+                YakitoriPlugin plugin = Loader.LoadPlugin(file, info);
+                if (plugin != null)
+                {
+                    Plugins.Add(info.PluginId, plugin);
+                    PluginInfoList.Add(info);
+                    plugin.enabled = true;
+                    Console.WriteLine("Successful load : " + file.Name);
+                    return;
+                }
             }
-            PluginBase plugin = asm.CreateInstance(info.MainClass) as PluginBase;
-            if (plugin != null)
-            {
-                Plugins.Add(info.PluginId, plugin);
-                PluginInfoList.Add(info);
-                plugin.SetEnable();
-            }
+            Console.Error.WriteLine("Failure to load : " + file.Name);
+            
         }
 
-        public PluginBase GetPlugin(string id)
+        public YakitoriPlugin GetPlugin(string id)
         {
             if (Plugins.ContainsKey(id))
             {
@@ -65,24 +64,9 @@ namespace Yakitori.Core.Plugin
             return null;
         }
 
-        public IList<PluginInfo> GetLoadedPlugins()
+        public IList<PluginInfo> GetAllPluginInfo()
         {
             return new List<PluginInfo>(PluginInfoList);
-        }
-
-        private PluginInfo parseAttributes(Assembly asm)
-        {
-            var main = asm.GetCustomAttribute<YakitoriPluginClass>().PluginClass;
-            var id = asm.GetCustomAttribute<YakitoriPluginID>().PluginID;
-            if (main == null || id == null)
-            {
-                return null;
-            }
-            var name = asm.GetCustomAttribute<YakitoriPluginName>().Name;
-            var desc = asm.GetCustomAttribute<YakitoriPluginDescription>().Description;
-            var version = asm.GetCustomAttribute<YakitoriPluginVersion>().Version;
-            var author = asm.GetCustomAttribute<YakitoriPluginAuthor>().Author;
-            return new PluginInfo(main, id, name, desc, version, author);
         }
     }
 }
