@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
@@ -16,10 +16,11 @@
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Core\Plugin\IPluginLoader.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)YakitoriPage.xaml.cs">
       <DependentUpon>YakitoriPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Core\Plugin\PluginBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\Plugin\YakitoriPlugin.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Core\Plugin\PluginInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Core\Plugin\PluginManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Core\Plugin\Attribute\YakitoriPluginAuthor.cs" />
