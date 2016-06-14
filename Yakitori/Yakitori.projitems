@@ -23,12 +23,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Core\Plugin\YakitoriPlugin.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Core\Plugin\PluginInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Core\Plugin\PluginManager.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Core\Plugin\Attribute\YakitoriPluginAuthor.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Core\Plugin\Attribute\YakitoriPluginClass.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Core\Plugin\Attribute\YakitoriPluginDescription.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Core\Plugin\Attribute\YakitoriPluginID.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Core\Plugin\Attribute\YakitoriPluginName.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Core\Plugin\Attribute\YakitoriPluginVersion.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Network\Cryptographer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Network\OAuthHandler.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Network\TwitterAPI.cs" />
