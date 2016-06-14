@@ -1,8 +1,8 @@
-  
-<p align="center"><img src="https://nephy.jp/assets/img/logo.png" width="150px"></p>  
-<h1 align="center">Yakitori</h1>  
-<p align="center">A Powerful Twitter Client, Including Universal Supports.</p> 
-<p align="center"><a href="https://yakitori.nephy.jp/">yakitori.nephy.jp</a></p> 
+<p align="center"><img src="https://nephy.jp/assets/img/logo.png" width="150px"></p>
+<h1 align="center">Yakitori</h1>
+<p align="center">A Powerful Twitter Client, Including Universal Supports.</p>
+<p align="center"><a href="https://yakitori.nephy.jp/">yakitori.nephy.jp</a></p>
+<p align="center">Email: <a href="mailto:yakitori@nephy.jp">yakitori@nephy.jp</a></p>
 <p align="center">
 <a align="center" href="https://github.com/NephyProject/Yakitori">
   <img src="https://img.shields.io/badge/Version-Deveroping-yellow.svg">
@@ -51,10 +51,3 @@ Nephyではタスク管理を[Waffle.io](https://waffle.io)にて行っていま
 | Task | 実装が決定されたタスク |  
 | Ready | 実装中のタスク |  
 | Done  | 実装が完了したタスク |  
-
-<iframe src="https://ghbtns.com/github-btn.html?user=NephyProject&repo=Yakitori&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe>
-
-<iframe src="https://ghbtns.com/github-btn.html?user=NephyProject&repo=Yakitori&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="95" height="20"></iframe>
-
-<iframe src="https://ghbtns.com/github-btn.html?NephyProject&type=follow&count=true"
-  allowtransparency="true" frameborder="0" scrolling="0" width="165" height="20"></iframe>
