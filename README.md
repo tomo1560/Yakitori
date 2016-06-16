@@ -1,4 +1,4 @@
-<p align="center"><img src="https://nephy.jp/assets/img/logo.png" width="150px"></p>
+<p align="center"><img src="https://assets.nephy.jp/assets/img/logo.png" width="150px"></p>
 <h1 align="center">Yakitori</h1>
 <p align="center">A Powerful Twitter Client, Including Universal Supports.</p>
 <p align="center"><a href="https://yakitori.nephy.jp/">yakitori.nephy.jp</a></p>
