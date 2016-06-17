@@ -27,5 +27,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Network\OAuthHandler.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Network\TwitterAPI.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utility.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\ThemeManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\Logging.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Network\WebSocket.cs" />
   </ItemGroup>
 </Project>
